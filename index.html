@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/styles/app.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" defer></script>
+  <script src="assets/scripts/functions.js" defer></script>
+  <script src="assets/scripts/app.js" defer></script>
+  <title>Monster Killer</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li class="flex_list">
+          <img id="logo" src="assets/icons/gameLogo.svg" alt="">
+          <p class="logoText"><span class="blue">I Am</span> Game</p>
+        </li>
+        <li class="home"><a class="nav-link" href="#">Home</a></li>
+        <li class="about"><a class="second nav-link" href="#">About</a></li>
+        <li class="contact"><a class="third nav-link" href="#">Contact me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="health-levels">
+      <i class="icon-monster">
+        <img src="assets/icons/skeleton.svg" alt="Devil icon">
+      </i>
+      <h2>Monster Health</h2>
+      <progress id="monster-health" max="100" value="100">100%</progress>
+      <i class="icon-player">
+        <img src="assets/icons/GAMER3.svg" alt="Devil icon">
+      </i>
+      <h2 class="player_health">Player Health<span id="bonus-life">2 bonus lifes</span></h2>
+      <progress id="player-health" max="100" value="100">100%</progress>
+    </section>
+
+    <section id="controls">
+      <button id="attack-btn">Attack</button>
+      <button id="strong-attack-btn">Strong Attack</button>
+      <button id="heal-btn">Heal</button>
+      <button id="log-btn">Show Log</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="innerFooter">
+      Copyright &copy; I Am Game, 2021. Alla rättigheter förbehålls.
+    </div>
+  </footer>
+</body>
+
+</html>
