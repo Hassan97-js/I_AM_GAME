@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=BioRhyme&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 
 /* GLOBAL STYLES */
 *,
@@ -8,11 +9,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-@font-face {
-  font-family: logoFont;
-  src: url(/assets/fonts/SGALSBI.ttf);
 }
 
 html {
@@ -139,7 +135,7 @@ header #logo {
 header nav ul li .logoText {
   margin-bottom: 5px;
   margin: auto;
-  font-family: logoFont, Arial, Helvetica, sans-serif;
+  font-family: "Permanent Marker", cursive;
   color: #941b03;
   font-size: 1.3rem;
 }
