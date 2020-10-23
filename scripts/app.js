@@ -94,7 +94,7 @@ function endRound() {
   );
   if (currentMonsterHealth <= 0 && currentPlayerHealth > 0) {
     swal("You Won!", {
-      icon: "/assets/icons/victory.png",
+      icon: "assets/icons/victory.png",
       closeOnClickOutside: false
     });
     writeToLog(
@@ -105,7 +105,7 @@ function endRound() {
     );
   } else if (currentPlayerHealth <= 0 && currentMonsterHealth > 0) {
     swal("You Lost!", {
-      icon: "/assets/icons/lost.png",
+      icon: "assets/icons/lost.png",
       closeOnClickOutside: false
     });
     writeToLog(
@@ -116,7 +116,7 @@ function endRound() {
     );
   } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     swal("You have a draw!", {
-      icon: "/assets/icons/OK.png",
+      icon: "assets/icons/OK.png",
       closeOnClickOutside: false
     });
     writeToLog(
