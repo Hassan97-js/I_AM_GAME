@@ -26,7 +26,7 @@ let strongAttackClicks = 0;
 let healClicks = 0;
 healBtn.disabled = true;
 
-swal("Hey Player 😃, you have to click 🖱️ on Attack button or Strong Attack button to enable the heal button. Good luck 👍", {
+swal("Hey Player 😃, you have to click 🖱️ on Attack button or Strong Attack button to enable the Heal button. Good luck 👍", {
   icon: "info",
   closeOnClickOutside: false
 });
