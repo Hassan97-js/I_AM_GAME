@@ -14,10 +14,6 @@ const LOG_EVENT_MONSTER_ATTACK = "MONSTER_ATTACK";
 const LOG_EVENT_PLAYER_HEAL = "PLAYER_HEAL";
 const LOG_EVENT_GAME_OVER = "GAME_OVER";
 
-/* if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-  chosenMaxLife = 100;
-} */
-
 let chosenMaxLife = 100;
 let battleLog = [];
 let currentMonsterHealth = chosenMaxLife;
