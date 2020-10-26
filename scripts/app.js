@@ -1,6 +1,6 @@
 /* jshint esversion:6 */
 
-/* Capitalized Words For Static values */
+/* Capitalized Words For Static Values */
 const ATTACK_VALUE = 12;
 const MONSTER_ATTACK_VALUE = 15;
 const STRONG_ATTACK_VALUE = 18;
