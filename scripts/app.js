@@ -1,6 +1,6 @@
 /* jshint esversion:6 */
 
-/* Static values */
+/* Capitalized Words For Static values */
 const ATTACK_VALUE = 12;
 const MONSTER_ATTACK_VALUE = 15;
 const STRONG_ATTACK_VALUE = 18;
@@ -13,8 +13,8 @@ const LOG_EVENT_PLAYER_STRONG_ATTACK = "PLAYER_STRONG_ATTACK";
 const LOG_EVENT_MONSTER_ATTACK = "MONSTER_ATTACK";
 const LOG_EVENT_PLAYER_HEAL = "PLAYER_HEAL";
 const LOG_EVENT_GAME_OVER = "GAME_OVER";
+const chosenMaxLife = 100;
 
-let chosenMaxLife = 100;
 let battleLog = [];
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
@@ -27,8 +27,7 @@ swal("Hey Player 😃, you have to click 🖱️ on Attack button or Strong Atta
   closeOnClickOutside: false
 });
 
-adjustHealthBars(chosenMaxLife);
-
+/* Write to log function for building the logEntry object */
 function writeToLog(event, value, monsterHealth, playerHealth) {
   if (
     event !== LOG_EVENT_PLAYER_ATTACK &&
@@ -68,6 +67,7 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
   battleLog.push(logEntry);
 }
 
+/* Reset function for resting the game */
 function reset() {
   healClicks = 0;
   strongAttackClicks = 0;
@@ -79,6 +79,7 @@ function reset() {
   resetGame(chosenMaxLife);
 }
 
+/* endRound function for attacking the player by monster & checking who's won */
 function endRound() {
   const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= playerDamage;
@@ -127,6 +128,7 @@ function endRound() {
   }
 }
 
+/* attackMonster for deciding the damage of attack mode*/
 function attackMonster(mode) {
   const maxDamage = mode === MODE_ATTACK ? ATTACK_VALUE : STRONG_ATTACK_VALUE;
   const logEvent = mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;
@@ -142,11 +144,13 @@ function attackMonster(mode) {
   endRound();
 }
 
+/* attackHandler for attacking monster when the attack button is pressed */
 function attackHandler() {
   healBtn.disabled = false;
   attackMonster(MODE_ATTACK);
 }
 
+/* strongAttackHandler for strong attacking monster when the strong attack button is pressed */
 function strongAttackHandler() {
   healBtn.disabled = false;
   attackMonster(MODE_STRONG_ATTACK);
@@ -161,6 +165,7 @@ function strongAttackHandler() {
   }
 }
 
+/* healPlayerHandler for healing the player depending on the healValue */
 function healPlayerHandler() {
   let healValue;
   if (currentPlayerHealth >= chosenMaxLife - HEAL_VALUE) {
@@ -194,12 +199,14 @@ function healPlayerHandler() {
   endRound();
 }
 
+/* printLogHandler function for looping over logEntry object & console log the battle description */
 function printLogHandler() {
   for (const battleLogIterator of battleLog) {
     console.log(battleLogIterator);
   }
 }
 
+/* addEventListener built-in functions to add the different events to different buttons */
 attackBtn.addEventListener("click", attackHandler);
 strongAttackBtn.addEventListener("click", strongAttackHandler);
 healBtn.addEventListener("click", healPlayerHandler);
