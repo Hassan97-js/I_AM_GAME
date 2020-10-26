@@ -9,6 +9,12 @@ const strongAttackBtn = document.querySelector("#strong-attack-btn");
 const healBtn = document.querySelector("#heal-btn");
 const logBtn = document.querySelector("#log-btn");
 
+/* resetGame function for reseting the value in the progress bars  */
+function resetGame(value) {
+  playerHealthBar.value = value;
+  monsterHealthBar.value = value;
+}
+
 /* dealMonsterDamage function to subtract random numbers to the monster's progress bar value */
 function dealMonsterDamage(damage) {
   const dealtDamage = Math.floor(Math.random() * damage);
@@ -26,12 +32,6 @@ function dealPlayerDamage(damage) {
 /* increasePlayerHealth function to add the healValue the player's progress bar */
 function increasePlayerHealth(healValue) {
   playerHealthBar.value = +playerHealthBar.value + healValue;
-}
-
-/* resetGame function for reseting the value in the progress bars  */
-function resetGame(value) {
-  playerHealthBar.value = value;
-  monsterHealthBar.value = value;
 }
 
 /* twoBonusLife function for adding the 2 bonus lifes text node after reseting the game  */
