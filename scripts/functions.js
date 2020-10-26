@@ -10,14 +10,6 @@ const strongAttackBtn = document.querySelector("#strong-attack-btn");
 const healBtn = document.querySelector("#heal-btn");
 const logBtn = document.querySelector("#log-btn");
 
-/* adjustHealthBars function for adding the value for the max attribute for the progress bars & the value for the progress bars */
-function adjustHealthBars(maxLife) {
-  monsterHealthBar.max = maxLife;
-  monsterHealthBar.value = maxLife;
-  playerHealthBar.max = maxLife;
-  playerHealthBar.value = maxLife;
-}
-
 /* dealMonsterDamage function for adding random numbers to the monster's progress bar value */
 function dealMonsterDamage(damage) {
   const dealtDamage = Math.floor(Math.random() * damage);
