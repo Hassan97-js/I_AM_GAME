@@ -24,8 +24,8 @@ body {
     rgba(221, 129, 148, 1) 41%,
     rgba(133, 116, 210, 1) 89%
   );
-  background-size: 400%;
-  animation: game-animation 20s infinite alternate;
+  background-size: 150%;
+  animation: game-animation 10s infinite alternate;
   min-height: 100vh;
   margin: 0;
 }
