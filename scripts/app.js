@@ -20,6 +20,7 @@ let currentMonsterHealth = CHOSEN_MAX_LIFE;
 let currentPlayerHealth = CHOSEN_MAX_LIFE;
 let strongAttackClicks = 0;
 let healClicks = 0;
+// Disable the heal button
 healBtn.disabled = true;
 
 swal(
