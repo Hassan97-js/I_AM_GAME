@@ -13,22 +13,25 @@ const LOG_EVENT_PLAYER_STRONG_ATTACK = "PLAYER_STRONG_ATTACK";
 const LOG_EVENT_MONSTER_ATTACK = "MONSTER_ATTACK";
 const LOG_EVENT_PLAYER_HEAL = "PLAYER_HEAL";
 const LOG_EVENT_GAME_OVER = "GAME_OVER";
-const chosenMaxLife = 100;
+const CHOSEN_MAX_LIFE = 100;
 
 let battleLog = [];
-let currentMonsterHealth = chosenMaxLife;
-let currentPlayerHealth = chosenMaxLife;
+let currentMonsterHealth = CHOSEN_MAX_LIFE;
+let currentPlayerHealth = CHOSEN_MAX_LIFE;
 let strongAttackClicks = 0;
 let healClicks = 0;
 healBtn.disabled = true;
 
-swal("Hey Player 😃, you have to click 🖱️ on Attack button or Strong Attack button to enable the Heal button. Good luck 👍", {
-  icon: "info",
-  closeOnClickOutside: false
-});
+swal(
+  "Hey Player 😃, you have to click 🖱️ on Attack button or Strong Attack button to enable the Heal button. Good luck 👍",
+  {
+    icon: "info",
+    closeOnClickOutside: false
+  }
+);
 
 /* Write to log function for building the logEntry object */
-function writeToLog(event, value, monsterHealth, playerHealth) {
+function writeToLog (event, value, monsterHealth, playerHealth) {
   if (
     event !== LOG_EVENT_PLAYER_ATTACK &&
     event !== LOG_EVENT_PLAYER_STRONG_ATTACK &&
@@ -44,7 +47,7 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
     event: event,
     value: value,
     finalMonsterHealth: monsterHealth,
-    finalPlayerHealth: playerHealth,
+    finalPlayerHealth: playerHealth
   };
 
   switch (event) {
@@ -68,19 +71,19 @@ function writeToLog(event, value, monsterHealth, playerHealth) {
 }
 
 /* Reset function for resting the game */
-function reset() {
+function reset () {
   healClicks = 0;
   strongAttackClicks = 0;
   strongAttackBtn.disabled = false;
   healBtn.disabled = true;
   twoBonusLife();
-  currentMonsterHealth = chosenMaxLife;
-  currentPlayerHealth = chosenMaxLife;
-  resetGame(chosenMaxLife);
+  currentMonsterHealth = CHOSEN_MAX_LIFE;
+  currentPlayerHealth = CHOSEN_MAX_LIFE;
+  resetGame(CHOSEN_MAX_LIFE);
 }
 
 /* endRound function for attacking the player by monster & checking who's won */
-function endRound() {
+function endRound () {
   const playerDamage = dealPlayerDamage(MONSTER_ATTACK_VALUE);
   currentPlayerHealth -= playerDamage;
   writeToLog(
@@ -129,9 +132,10 @@ function endRound() {
 }
 
 /* attackMonster for deciding the damage of attack mode*/
-function attackMonster(mode) {
+function attackMonster (mode) {
   const maxDamage = mode === MODE_ATTACK ? ATTACK_VALUE : STRONG_ATTACK_VALUE;
-  const logEvent = mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;
+  const logEvent =
+    mode === MODE_ATTACK ? LOG_EVENT_PLAYER_ATTACK : LOG_EVENT_PLAYER_STRONG_ATTACK;
   const attackStrength = mode === MODE_ATTACK ? "NORMAL ATTACK" : "STRONG ATTACK";
   const damage = dealMonsterDamage(maxDamage);
   currentMonsterHealth -= damage;
@@ -145,13 +149,13 @@ function attackMonster(mode) {
 }
 
 /* attackHandler for attacking monster when the attack button is pressed */
-function attackHandler() {
+function attackHandler () {
   healBtn.disabled = false;
   attackMonster(MODE_ATTACK);
 }
 
 /* strongAttackHandler for strong attacking monster when the strong attack button is pressed */
-function strongAttackHandler() {
+function strongAttackHandler () {
   healBtn.disabled = false;
   attackMonster(MODE_STRONG_ATTACK);
   strongAttackClicks++;
@@ -166,10 +170,10 @@ function strongAttackHandler() {
 }
 
 /* healPlayerHandler for healing the player depending on the healValue */
-function healPlayerHandler() {
+function healPlayerHandler () {
   let healValue;
-  if (currentPlayerHealth >= chosenMaxLife - HEAL_VALUE) {
-    healValue = chosenMaxLife - currentPlayerHealth;
+  if (currentPlayerHealth >= CHOSEN_MAX_LIFE - HEAL_VALUE) {
+    healValue = CHOSEN_MAX_LIFE - currentPlayerHealth;
     swal("You can't heal to more than your max initial health.", {
       icon: "warning",
       closeOnClickOutside: false
@@ -200,7 +204,7 @@ function healPlayerHandler() {
 }
 
 /* printLogHandler function for looping over logEntry object & console log the battle description */
-function printLogHandler() {
+function printLogHandler () {
   for (const battleLogIterator of battleLog) {
     console.log(battleLogIterator);
   }
@@ -211,5 +215,3 @@ attackBtn.addEventListener("click", attackHandler);
 strongAttackBtn.addEventListener("click", strongAttackHandler);
 healBtn.addEventListener("click", healPlayerHandler);
 logBtn.addEventListener("click", printLogHandler);
-
-
